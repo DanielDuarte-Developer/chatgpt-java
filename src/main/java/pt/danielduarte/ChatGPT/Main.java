@@ -16,6 +16,7 @@ public class Main {
 
         Map<String,String> config = ConfigParser.parse("application.properties");
         String greeting = config.get("greeting");
+        System.out.println(greeting);
 
         OpenAIRequest req = new OpenAIRequest();
         req.setModel("text-davinci-003");
