@@ -3,13 +3,15 @@ package pt.danielduarte.ChatGPT;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import pt.danielduarte.ChatGPT.model.request.OpenAIRequest;
+import pt.danielduarte.ChatGPT.modelo.Chat;
+import pt.danielduarte.ChatGPT.modelo.Message;
 
-public class main {
+public class Main {
     private static final String TOKEN ="";
 
     public static void main(String[] args) {
         OpenAIRequest req = new OpenAIRequest();
-        req.setModel("text-danvinci-003");
+        req.setModel("text-davinci-003");
         req.setPrompt("You are an AI\nAI:");
         req.setTemperature(0.5f);
         req.setMaxTokens(60);
