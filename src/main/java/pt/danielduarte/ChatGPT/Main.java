@@ -3,19 +3,19 @@ package pt.danielduarte.ChatGPT;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import pt.danielduarte.ChatGPT.model.request.OpenAIRequest;
+import pt.danielduarte.ChatGPT.util.ConfigParser;
 import pt.danielduarte.ChatGPT.util.FileUtils;
 
 import java.util.List;
+import java.util.Map;
 
 public class Main {
     private static final String TOKEN ="";
 
     public static void main(String[] args) {
 
-        FileUtils fileUtils = new FileUtils();
-        List<String> lines;
-        lines = fileUtils.readLines("application.properties");
-        System.out.println(lines);
+        Map<String,String> config = ConfigParser.parse("application.properties");
+        String greeting = config.get("greeting");
 
         OpenAIRequest req = new OpenAIRequest();
         req.setModel("text-davinci-003");

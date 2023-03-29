@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.util.*;
 
 public class FileUtils {
-    public List<String> readLines(String filePath){
+    public static List<String> readLines(String filePath){
         List<String> result = new ArrayList<>();
         try(BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line;
