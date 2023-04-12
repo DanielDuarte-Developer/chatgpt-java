@@ -6,13 +6,14 @@ import pt.danielduarte.ChatGPT.model.request.OpenAIRequest;
 import pt.danielduarte.ChatGPT.util.ConfigParser;
 import pt.danielduarte.ChatGPT.util.FileUtils;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
 public class Main {
     private static final String TOKEN ="";
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
         Map<String,String> config = ConfigParser.parse("application.properties");
         String greeting = config.get("greeting");
