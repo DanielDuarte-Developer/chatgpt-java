@@ -23,7 +23,7 @@ public class Main {
 
         OpenAiRequestFactory openAiRequestFactory = new OpenAiRequestFactory();
         Chat chat = new Chat(greeting);
-        OpenAIRequest req = OpenAiRequestFactory.createChatOpenAiRequest(chat);
+        OpenAIRequest req = openAiRequestFactory.createChatOpenAiRequest(chat);
 
         ObjectMapper mapper = new ObjectMapper();
         String jsonPayload = null;

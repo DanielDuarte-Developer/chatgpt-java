@@ -4,7 +4,7 @@ import pt.danielduarte.ChatGPT.model.request.OpenAIRequest;
 import pt.danielduarte.ChatGPT.modelo.Chat;
 
 public class OpenAiRequestFactory {
-    public static OpenAIRequest createChatOpenAiRequest(Chat chat){
+    public OpenAIRequest createChatOpenAiRequest(Chat chat){
         final OpenAIRequest req = new OpenAIRequest();
 
         req.setModel("text-davinci-003");
@@ -19,7 +19,7 @@ public class OpenAiRequestFactory {
         return req;
     }
 
-    private static String chatPromptToString(Chat chat){
+    private String chatPromptToString(Chat chat){
         String result = chat.getPrompt();
 
         // result needs to be Subject:MessageContent \n...
