@@ -3,6 +3,8 @@ package pt.danielduarte.ChatGPT;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import pt.danielduarte.ChatGPT.model.request.OpenAIRequest;
+import pt.danielduarte.ChatGPT.model.request.factory.OpenAiRequestFactory;
+import pt.danielduarte.ChatGPT.modelo.Chat;
 import pt.danielduarte.ChatGPT.util.ConfigParser;
 import pt.danielduarte.ChatGPT.util.FileUtils;
 
@@ -19,22 +21,18 @@ public class Main {
         String greeting = config.get("greeting");
         System.out.println(greeting);
 
-        OpenAIRequest req = new OpenAIRequest();
-        req.setModel("text-davinci-003");
-        req.setPrompt("You are an AI\nAI:");
-        req.setTemperature(0.5f);
-        req.setMaxTokens(60);
-        req.setTopP(1.0f);
-        req.setFrequencyPenalty(0.5f);
-        req.setPresencePenalty(0.5f);
-        req.setStop(new String[]{"AI:"});
+        OpenAiRequestFactory openAiRequestFactory = new OpenAiRequestFactory();
+        Chat chat = new Chat(greeting);
+        OpenAIRequest req = OpenAiRequestFactory.createChatOpenAiRequest(chat);
 
         ObjectMapper mapper = new ObjectMapper();
         String jsonPayload = null;
         try {
             jsonPayload = mapper.writeValueAsString(req);
         } catch (JsonProcessingException e) {
-            throw new RuntimeException("Error: " + e.getMessage());
+            System.err.println(e.getMessage());
+            return;
+            //throw new RuntimeException("Error: " + e.getMessage());
         }
 
         System.out.println(jsonPayload);
