@@ -22,4 +22,5 @@ public class Chat {
     public void addMessage(Message message){
         this.messages.add(message);
     }
+
 }
