@@ -4,25 +4,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Chat {
-    private String prompt;
-    private List<Message> messages;
+    private final String prompt;
+    private final List<Message> messages;
+
+    public Chat(String prompt) {
+        this.prompt = prompt;
+        this.messages = new ArrayList<>();
+    }
 
     public String getPrompt() {
         return prompt;
     }
-
-    public void setPrompt(String prompt) {
-        this.prompt = prompt;
-    }
-
     public List<Message> getMessages() {
         return messages;
     }
 
     public void addMessage(Message message){
-        if(message == null){
-            this.messages = new ArrayList<>();
-        }
         this.messages.add(message);
     }
 }
