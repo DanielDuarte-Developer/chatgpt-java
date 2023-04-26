@@ -2,8 +2,8 @@ package pt.danielduarte.ChatGPT.model.request.factory;
 
 import org.junit.jupiter.api.Test;
 import pt.danielduarte.ChatGPT.model.request.OpenAIRequest;
-import pt.danielduarte.ChatGPT.modelo.Chat;
-import pt.danielduarte.ChatGPT.modelo.Message;
+import pt.danielduarte.ChatGPT.model.request.modelo.Chat;
+import pt.danielduarte.ChatGPT.model.request.modelo.Message;
 
 import static org.junit.jupiter.api.Assertions.*;
 
