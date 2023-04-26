@@ -11,6 +11,9 @@ public class OpenAiRequesToJsonSting {
         mapper = new ObjectMapper();
     }
 
+    public OpenAiRequesToJsonSting(ObjectMapper mapper){
+        this.mapper = mapper;
+    }
     public String map(OpenAIRequest request){
         String jsonPayload = null;
         try {
