@@ -2,14 +2,13 @@ package pt.danielduarte.ChatGPT;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import pt.danielduarte.ChatGPT.mapper.OpenAiRequesToJsonSting;
 import pt.danielduarte.ChatGPT.model.request.OpenAIRequest;
 import pt.danielduarte.ChatGPT.model.request.factory.OpenAiRequestFactory;
-import pt.danielduarte.ChatGPT.modelo.Chat;
+import pt.danielduarte.ChatGPT.model.request.modelo.Chat;
 import pt.danielduarte.ChatGPT.util.ConfigParser;
-import pt.danielduarte.ChatGPT.util.FileUtils;
 
 import java.io.IOException;
-import java.util.List;
 import java.util.Map;
 
 public class Main {
@@ -25,15 +24,8 @@ public class Main {
         Chat chat = new Chat(greeting);
         OpenAIRequest req = openAiRequestFactory.createChatOpenAiRequest(chat);
 
-        ObjectMapper mapper = new ObjectMapper();
-        String jsonPayload = null;
-        try {
-            jsonPayload = mapper.writeValueAsString(req);
-        } catch (JsonProcessingException e) {
-            System.err.println(e.getMessage());
-            return;
-            //throw new RuntimeException("Error: " + e.getMessage());
-        }
+        OpenAiRequesToJsonSting mapper = new OpenAiRequesToJsonSting();
+        String jsonPayload = mapper.map(req);
 
         System.out.println(jsonPayload);
     }

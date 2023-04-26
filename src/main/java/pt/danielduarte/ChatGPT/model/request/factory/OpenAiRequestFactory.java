@@ -1,7 +1,7 @@
 package pt.danielduarte.ChatGPT.model.request.factory;
 
 import pt.danielduarte.ChatGPT.model.request.OpenAIRequest;
-import pt.danielduarte.ChatGPT.modelo.Chat;
+import pt.danielduarte.ChatGPT.model.request.modelo.Chat;
 
 public class OpenAiRequestFactory {
     public OpenAIRequest createChatOpenAiRequest(Chat chat){

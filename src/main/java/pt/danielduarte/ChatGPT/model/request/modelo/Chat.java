@@ -1,4 +1,4 @@
-package pt.danielduarte.ChatGPT.modelo;
+package pt.danielduarte.ChatGPT.model.request.modelo;
 
 import java.util.ArrayList;
 import java.util.List;
